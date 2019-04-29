@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class PaisDao {
 
-    public static boolean inserir(String sigla, String nome) throws ClassNotFoundException {
+    public static boolean inserir(String sigla, String nome)   {
         String sql = "INSERT INTO pais (sigla, nome) VALUES (?, ?)";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
@@ -23,12 +23,12 @@ public class PaisDao {
             ps.setString(2, nome);
             ps.executeUpdate();
             return true;
-        } catch (SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
             return false;
         }
     }
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args)  {
         boolean resultado = inserir("BR", "Brasil");
         if (resultado){
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
