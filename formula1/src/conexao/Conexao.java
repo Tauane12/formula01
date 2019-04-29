@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package conecxao;
+package conexao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
