@@ -5,6 +5,9 @@
  */
 package telas.listagem;
 
+import dao.PaisDao;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import telas.manutencao.ManutençaoPais;
 
 /**
@@ -19,6 +22,8 @@ public class ListagemPais extends javax.swing.JDialog {
     public ListagemPais(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        atualizarTabela();
     }
 
     /**
@@ -32,7 +37,7 @@ public class ListagemPais extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -40,7 +45,7 @@ public class ListagemPais extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Listagem de Paises ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -51,7 +56,7 @@ public class ListagemPais extends javax.swing.JDialog {
                 "Sigla", "Nome"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabela);
 
         jToggleButton1.setText("Novo");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +100,16 @@ public class ListagemPais extends javax.swing.JDialog {
         ManutençaoPais manutencao = new ManutençaoPais(null, true);
         manutencao.setVisible(true);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+    public void atualizarTabela() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Sigla");
+        modelo.addColumn("Nome");
+        List<String[]> resultados = PaisDao.consultar();
+        resultados.stream().forEach((linha) -> {
+            modelo.addRow(linha);
+        });
+        tabela.setModel(modelo);
+    }
 
     /**
      * @param args the command line arguments
@@ -141,7 +156,8 @@ public class ListagemPais extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
+
 }
