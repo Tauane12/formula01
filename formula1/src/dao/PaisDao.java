@@ -33,6 +33,20 @@ public class PaisDao {
             return false;
         }
     }
+    
+     public static boolean alterar(String sigla, String nome)   {
+        String sql = "UPDATE  pais SET nome = ? WHERE sigla = ?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.setString(2, sigla);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+     }
      public static List<String[]> consultar() {
         List<String[]> resultados = new ArrayList<>();
         String sql = "SELECT sigla, nome FROM pais";
@@ -53,9 +67,9 @@ public class PaisDao {
         }
     }
     public static void main(String[] args)  {
-        boolean resultado = inserir("BR", "Brasil");
+        boolean resultado = alterar("BR", "Brazil");
         if (resultado){
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
         }else{
             JOptionPane.showMessageDialog(null, "Erro!");
         }

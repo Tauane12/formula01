@@ -8,7 +8,7 @@ package telas.listagem;
 import dao.PaisDao;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import telas.manutencao.ManutençaoPais;
+import telas.manutencao.ManutencaoPais;
 
 /**
  *
@@ -97,7 +97,7 @@ public class ListagemPais extends javax.swing.JDialog {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        ManutençaoPais manutencao = new ManutençaoPais(null, true);
+        ManutencaoPais manutencao = new ManutencaoPais(null, true);
         manutencao.setVisible(true);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
     public void atualizarTabela() {

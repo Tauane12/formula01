@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class ManutençaoPais extends javax.swing.JDialog {
+public class ManutencaoPais extends javax.swing.JDialog {
 
     /**
      * Creates new form ManutençaoPais
      */
-    public ManutençaoPais(java.awt.Frame parent, boolean modal) {
+    public ManutencaoPais(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -165,20 +165,21 @@ public class ManutençaoPais extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManutençaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManutencaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManutençaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManutencaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManutençaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManutencaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManutençaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManutencaoPais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ManutençaoPais dialog = new ManutençaoPais(new javax.swing.JFrame(), true);
+                ManutencaoPais dialog = new ManutencaoPais(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
